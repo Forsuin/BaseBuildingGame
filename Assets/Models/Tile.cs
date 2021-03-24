@@ -11,24 +11,6 @@ public class Tile
 
     Action<Tile> cbTileTypeChanged;
 
-    public TileType Type
-    {
-        get
-        {
-            return type;
-        }
-        set
-        {
-            TileType oldType = type;
-            type = value;
-            //Call OnTileTypeChanged only when the tile type is changed to something new
-            if (cbTileTypeChanged != null && oldType != type)
-            {
-                cbTileTypeChanged(this);
-            }
-        }
-    }
-
     LooseObject looseObject;
     InstalledObject InstalledObject;
 
@@ -50,6 +32,24 @@ public class Tile
             return y;
         }
     }
+    public TileType Type
+    {
+        get
+        {
+            return type;
+        }
+        set
+        {
+            TileType oldType = type;
+            type = value;
+            //Call OnTileTypeChanged only when the tile type is changed to something new
+            if (cbTileTypeChanged != null && oldType != type)
+            {
+                cbTileTypeChanged(this);
+            }
+        }
+    }
+
 
     public Tile(World world, int x, int y)
     {
